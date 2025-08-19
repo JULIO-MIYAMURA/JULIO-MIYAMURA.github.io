@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rodolfo Eduardo - Página Personal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #006064;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background-color: #004d40;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #00796b;
+      color: white;
+      border-radius: 20px;
+      transition: background 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #004d40;
+    }
+
+    section {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #00695c;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    .btn {
+      font-size: 16px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 12px;
+      margin: 10px 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: white;
+      background-color: #009688;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:hover {
+      background-color: #00796b;
+    }
+
+    .video-responsivo {
+      width: 100%;
+      max-width: 640px;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #004d40;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+      .btn {
+        width: 90%;
+      }
+      iframe {
+        height: 300px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Rodolfo Eduardo</h1>
+    <p>Bienvenido a mi página personal</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="perfil.html" target="_blank">Perfil</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio">
+    <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
+    <p>Me gustan los videojuegos, soy tranquilo, estudio en el CEB 5/4 "Profesor Rafael Ramírez" y me encanta ver series.</p>
+    <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" width="300" alt="Imagen representativa">
+  </section>
+
+  <section>
+    <h2>Mis intereses</h2>
+    <ul>
+      <li>🎬 Edición de video</li>
+      <li>💻 Programación básica</li>
+      <li>🔍 Aprender nuevas tecnologías</li>
+    </ul>
+  </section>
+
+  <section>
+    <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
+    <div id="contenedor" style="display: none;">
+      <iframe src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" allowfullscreen></iframe>
+    </div>
+
+    <button class="btn" id="btn-video" onclick="toggleVideo()">Mostrar Video</button>
+    <div id="video-container" style="display: none;">
+      <h2>Mi Video</h2>
+      <video class="video-responsivo" controls>
+        <source src="VID-20250528-WA0001.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Rodolfo Eduardo | Página Personal
+  </footer>
+
+  <script>
+    function mostrarIframe() {
+      const contenedor = document.getElementById("contenedor");
+      contenedor.style.display = contenedor.style.display === "none" ? "block" : "none";
+    }
+
+    function toggleVideo() {
+      const contenedor = document.getElementById("video-container");
+      const boton = document.getElementById("btn-video");
+      const video = contenedor.querySelector("video");
+
+      if (contenedor.style.display === "none") {
+        contenedor.style.display = "block";
+        boton.textContent = "Ocultar Video";
+      } else {
+        contenedor.style.display = "none";
+        boton.textContent = "Mostrar Video";
+        video.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>
