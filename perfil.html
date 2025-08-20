@@ -20,7 +20,7 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(-45deg, #dbeafe, #e0f7fa, #fffde7, #e1bee7);
       background-size: 400% 400%;
-      animation: bgAnimate 10s ease infinite;
+      animation: bgAnimate 10s ease infinite, fadeInBody 1.5s ease;
       color: #333;
     }
 
@@ -28,6 +28,11 @@
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     nav {
@@ -87,6 +92,13 @@
       border: none;
       object-fit: cover;
       background-color: transparent;
+      animation: floatImg 3s ease-in-out infinite;
+    }
+
+    @keyframes floatImg {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
     }
 
     .perfil h1 {
@@ -108,11 +120,12 @@
       color: #1abc9c;
       margin: 0 10px;
       font-size: 1.5em;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
 
     .social-icons a:hover {
       color: #16a085;
+      transform: scale(1.2);
     }
 
     #info-contacto {
@@ -125,6 +138,23 @@
       font-weight: bold;
       color: #2c3e50;
       font-size: 1.1em;
+    }
+
+    .boton-regresar {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #34495e;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .boton-regresar:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
     }
 
     @keyframes fadeIn {
@@ -163,25 +193,21 @@
         <a href="https://wa.me/5217719453626" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
 
-      <!-- Contenedor para mostrar datos -->
       <div id="info-contacto">
         <p id="contacto-texto"></p>
       </div>
+
+      <a href="index.html" class="boton-regresar">← Regresar a la página principal</a>
     </div>
   </div>
+
+  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_8777a7c412.mp3?filename=mouse-click-153941.mp3"></audio>
 
   <script>
     const contenedor = document.getElementById('info-contacto');
     const textoElemento = document.getElementById('contacto-texto');
     let contactoActual = "";
-
-    document.getElementById('btn-correo').addEventListener('click', function () {
-      toggleContacto('Correo electrónico: rodolfohernandezh5--4@dgb.edu.mx');
-    });
-
-    document.getElementById('btn-whatsapp').addEventListener('click', function () {
-      toggleContacto('Número de WhatsApp: +52 1 771 945 3626');
-    });
+    const clickSound = document.getElementById('click-sound');
 
     function toggleContacto(texto) {
       if (contenedor.style.display === 'block' && contactoActual === texto) {
@@ -192,7 +218,16 @@
         contenedor.style.display = 'block';
         contactoActual = texto;
       }
+      clickSound.play();
     }
+
+    document.getElementById('btn-correo').addEventListener('click', function () {
+      toggleContacto('Correo electrónico: rodolfohernandezh5--4@dgb.edu.mx');
+    });
+
+    document.getElementById('btn-whatsapp').addEventListener('click', function () {
+      toggleContacto('Número de WhatsApp: +52 1 771 945 3626');
+    });
   </script>
 
 </body>
