@@ -180,6 +180,8 @@
       background: #00796b;
       box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3);
       transition: transform 0.2s ease, background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn:hover {
@@ -241,7 +243,8 @@
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#inicio" class="nav-link" id="link-inicio"><i data-lucide="home"></i> Inicio</a></li>
-    <li><a href="#perfil" class="nav-link" id="link-perfil"><i data-lucide="user"></i> Perfil</a></li>
+    <!-- 🔹 Este ahora abre perfil.html -->
+    <li><a href="perfil.html" class="nav-link" id="link-perfil"><i data-lucide="user"></i> Perfil</a></li>
     <li><a href="#perfil" class="nav-link" id="link-intereses"><i data-lucide="star"></i> Mis intereses</a></li>
   </ul>
 </nav>
@@ -316,7 +319,7 @@
     // Dispara el evento scroll para que se active el primer enlace al cargar
     window.dispatchEvent(new Event('scroll'));
 
-    // Funciones para mostrar iframe y video (tus originales)
+    // Funciones para mostrar iframe y video
     function mostrarIframe() {
       const contenedor = document.getElementById("contenedor");
       contenedor.style.display = contenedor.style.display === "none" ? "block" : "none";
@@ -340,5 +343,3 @@
 
 </body>
 </html>
-
-
